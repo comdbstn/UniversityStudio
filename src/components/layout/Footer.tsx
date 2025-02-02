@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <footer className="bg-black border-t border-purple-500/10">
+        <footer className="bg-black border-t border-blue-500/10">
             <div className="container mx-auto px-4 py-12">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div>
@@ -70,7 +70,7 @@ const Footer = () => {
                         </p>
                     </div>
                 </div>
-                <div className="mt-12 pt-8 border-t border-purple-500/10 text-center text-gray-400">
+                <div className="mt-12 pt-8 border-t border-blue-500/10 text-center text-gray-400">
                     <p>&copy; {new Date().getFullYear()} University Studio. All rights reserved.</p>
                 </div>
             </div>

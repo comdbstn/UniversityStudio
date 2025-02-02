@@ -28,7 +28,7 @@ const UniversityStudio = () => {
 
     const gradientX = useTransform(mouseX, [0, windowDimensions.width], [0, 100]);
     const gradientY = useTransform(mouseY, [0, windowDimensions.height], [0, 100]);
-    const background = useMotionTemplate`radial-gradient(circle at ${gradientX}% ${gradientY}%, rgba(147,51,234,0.15), transparent 70%)`;
+    const background = useMotionTemplate`radial-gradient(circle at ${gradientX}% ${gradientY}%, rgba(59,130,246,0.15), transparent 70%)`;
 
     // Stats animation
     const [stats, setStats] = useState({
@@ -87,7 +87,7 @@ const UniversityStudio = () => {
                                 initial={{ opacity: 0, scale: 0.9 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.5 }}
-                                className="inline-block px-6 py-3 bg-purple-500/10 rounded-full text-purple-400 text-sm mb-8 border border-purple-500/20 backdrop-blur-sm"
+                                className="inline-block px-6 py-3 bg-blue-500/10 rounded-full text-blue-400 text-sm mb-8 border border-blue-500/20 backdrop-blur-sm"
                             >
                                 University Studio
                             </motion.span>
@@ -95,7 +95,7 @@ const UniversityStudio = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.2 }}
-                                className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-purple-500 to-indigo-500 bg-clip-text text-transparent"
+                                className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-blue-500 to-yellow-500 bg-clip-text text-transparent"
                             >
                                 대학생 타겟 마케팅,<br />
                                 "압도적 업계 1위"
@@ -139,9 +139,9 @@ const UniversityStudio = () => {
                                         transition={{ delay: 0.6 + index * 0.2 }}
                                         className="relative group"
                                     >
-                                        <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-indigo-600/20 to-purple-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700" />
-                                        <div className="relative p-8 rounded-2xl bg-purple-500/5 border border-purple-500/10 backdrop-blur-sm">
-                                            <div className="text-3xl font-bold text-purple-400 mb-2">
+                                        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-yellow-600/20 to-blue-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700" />
+                                        <div className="relative p-8 rounded-2xl bg-blue-500/5 border border-blue-500/10 backdrop-blur-sm">
+                                            <div className="text-3xl font-bold text-blue-400 mb-2">
                                                 {stat.value}{stat.suffix}
                                             </div>
                                             <div className="text-lg text-gray-400">{stat.label}</div>
@@ -162,9 +162,9 @@ const UniversityStudio = () => {
                                     href="https://sclu.io/share/bulk/file/82fc833911752e32"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-xl font-bold text-lg overflow-hidden"
+                                    className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-yellow-600 text-white rounded-xl font-bold text-lg overflow-hidden"
                                 >
-                                    <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                     <div className="relative flex items-center">
                                         제안서 보기
                                         <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -174,9 +174,9 @@ const UniversityStudio = () => {
                                     href="https://6nxuuec1a2p.typeform.com/to/V4bKkFYO"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="group relative px-8 py-4 border-2 border-purple-600/50 text-purple-400 rounded-xl font-bold text-lg overflow-hidden"
+                                    className="group relative px-8 py-4 border-2 border-blue-600/50 text-blue-400 rounded-xl font-bold text-lg overflow-hidden"
                                 >
-                                    <div className="absolute inset-0 bg-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                    <div className="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                     <div className="relative flex items-center">
                                         상담 신청
                                         <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -221,15 +221,15 @@ const UniversityStudio = () => {
                                     transition={{ delay: index * 0.2 }}
                                     className="relative group"
                                 >
-                                    <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-indigo-600/20 to-purple-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700" />
-                                    <div className="relative p-8 rounded-2xl bg-purple-500/5 border border-purple-500/10 backdrop-blur-sm">
+                                    <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-yellow-600/20 to-blue-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700" />
+                                    <div className="relative p-8 rounded-2xl bg-blue-500/5 border border-blue-500/10 backdrop-blur-sm">
                                         <div className="flex mb-4">
                                             {[...Array(5)].map((_, i) => (
                                                 <Star key={i} className="w-5 h-5 text-yellow-500 fill-yellow-500" />
                                             ))}
                                         </div>
                                         <p className="text-gray-300 mb-4">{testimonial.text}</p>
-                                        <p className="text-purple-400 italic">- {testimonial.author}</p>
+                                        <p className="text-blue-400 italic">- {testimonial.author}</p>
                                     </div>
                                 </motion.div>
                             ))}
@@ -279,9 +279,9 @@ const UniversityStudio = () => {
                                     transition={{ delay: index * 0.2 }}
                                     className="relative group"
                                 >
-                                    <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-indigo-600/20 to-purple-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700" />
-                                    <div className="relative p-8 rounded-2xl bg-purple-500/5 border border-purple-500/10 backdrop-blur-sm">
-                                        <div className="text-purple-400 mb-4">
+                                    <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-yellow-600/20 to-blue-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700" />
+                                    <div className="relative p-8 rounded-2xl bg-blue-500/5 border border-blue-500/10 backdrop-blur-sm">
+                                        <div className="text-blue-400 mb-4">
                                             {feature.icon}
                                         </div>
                                         <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
@@ -311,9 +311,9 @@ const UniversityStudio = () => {
                                     href="https://sclu.io/share/bulk/file/82fc833911752e32"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-xl font-bold text-lg w-full max-w-md"
+                                    className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-yellow-600 text-white rounded-xl font-bold text-lg w-full max-w-md"
                                 >
-                                    <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                     <div className="relative flex items-center justify-center">
                                         제안서 다운로드
                                         <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />

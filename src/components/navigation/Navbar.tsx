@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-lg border-b border-purple-500/10">
+        <nav className="fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-lg border-b border-blue-500/10">
             <div className="container mx-auto px-4">
                 <div className="flex items-center justify-between h-20">
                     <Link to="/" className="text-2xl font-bold text-white">
@@ -24,7 +24,7 @@ const Navbar = () => {
                             href="https://6nxuuec1a2p.typeform.com/to/V4bKkFYO"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                            className="px-4 py-2 bg-gradient-to-r from-blue-600 to-yellow-600 text-white rounded-lg hover:opacity-90 transition-opacity"
                         >
                             상담 신청
                         </a>
