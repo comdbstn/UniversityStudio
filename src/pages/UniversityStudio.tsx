@@ -1,18 +1,33 @@
-import React from 'react';
 import { motion, useMotionValue, useMotionTemplate, useTransform } from "framer-motion";
-import { ArrowRight, Star, Users, DollarSign, Target, BarChart3, MessageCircle } from "lucide-react";
-import { Link } from "react-router-dom";
-import { Navbar } from "../components/navigation/Navbar";
-import { Footer } from "../components/layout/Footer";
-import { useEffect, useState } from "react";
+import { ArrowRight, Star, Users, Target, BarChart3, MessageCircle } from "lucide-react";
+import Navbar from "../components/navigation/Navbar";
+import Footer from "../components/layout/Footer";
 import { Analytics } from "@vercel/analytics/react";
+import { useEffect, useState } from "react";
 
-export function UniversityStudio() {
+const UniversityStudio = () => {
     // Motion hooks for gradient effect
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
-    const gradientX = useTransform(mouseX, [0, window.innerWidth], [0, 100]);
-    const gradientY = useTransform(mouseY, [0, window.innerHeight], [0, 100]);
+
+    // Initialize window dimensions safely
+    const [windowDimensions, setWindowDimensions] = useState({
+        width: typeof window !== 'undefined' ? window.innerWidth : 1920,
+        height: typeof window !== 'undefined' ? window.innerHeight : 1080
+    });
+
+    // Update window dimensions on mount
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            setWindowDimensions({
+                width: window.innerWidth,
+                height: window.innerHeight
+            });
+        }
+    }, []);
+
+    const gradientX = useTransform(mouseX, [0, windowDimensions.width], [0, 100]);
+    const gradientY = useTransform(mouseY, [0, windowDimensions.height], [0, 100]);
     const background = useMotionTemplate`radial-gradient(circle at ${gradientX}% ${gradientY}%, rgba(147,51,234,0.15), transparent 70%)`;
 
     // Stats animation
@@ -317,4 +332,6 @@ export function UniversityStudio() {
             <Footer />
         </>
     );
-} 
+}
+
+export default UniversityStudio; 
