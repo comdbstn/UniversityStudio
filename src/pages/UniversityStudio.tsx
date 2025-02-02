@@ -28,7 +28,7 @@ const UniversityStudio = () => {
 
     const gradientX = useTransform(mouseX, [0, windowDimensions.width], [0, 100]);
     const gradientY = useTransform(mouseY, [0, windowDimensions.height], [0, 100]);
-    const background = useMotionTemplate`radial-gradient(circle at ${gradientX}% ${gradientY}%, rgba(59,130,246,0.15), transparent 70%)`;
+    const background = useMotionTemplate`radial-gradient(circle at ${gradientX}% ${gradientY}%, rgba(59,130,246,0.2), rgba(250,204,21,0.1), transparent 70%)`;
 
     // Stats animation
     const [stats, setStats] = useState({
@@ -74,7 +74,7 @@ const UniversityStudio = () => {
         <>
             <Analytics />
             <Navbar />
-            <main className="min-h-screen bg-black text-white" onMouseMove={handleMouseMove}>
+            <main className="min-h-screen bg-gradient-to-b from-white via-blue-50 to-yellow-50 text-gray-800" onMouseMove={handleMouseMove}>
                 {/* 히어로 섹션 */}
                 <section className="relative min-h-screen flex items-center pt-20">
                     <motion.div 
@@ -87,7 +87,7 @@ const UniversityStudio = () => {
                                 initial={{ opacity: 0, scale: 0.9 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.5 }}
-                                className="inline-block px-6 py-3 bg-blue-500/10 rounded-full text-yellow-300 text-sm mb-8 border border-blue-500/20 backdrop-blur-sm"
+                                className="inline-block px-6 py-3 bg-gradient-to-r from-blue-500 to-yellow-400 text-white text-sm mb-8 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
                             >
                                 University Studio
                             </motion.span>
@@ -95,7 +95,7 @@ const UniversityStudio = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.2 }}
-                                className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-yellow-300 to-blue-500 bg-clip-text text-transparent"
+                                className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-blue-500 to-yellow-400 bg-clip-text text-transparent"
                             >
                                 대학생 타겟 마케팅,<br />
                                 "압도적 업계 1위"
@@ -104,7 +104,7 @@ const UniversityStudio = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.4 }}
-                                className="text-xl text-gray-400 mb-12"
+                                className="text-xl text-gray-600 mb-12"
                             >
                                 어떤 상품이든 업계 최고의 KPI를 도출하는<br />
                                 혁신적인 마케팅 솔루션을 제공합니다
@@ -138,14 +138,15 @@ const UniversityStudio = () => {
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ delay: 0.6 + index * 0.2 }}
                                         className="relative group"
+                                        whileHover={{ scale: 1.05 }}
                                     >
-                                        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-yellow-400/20 to-blue-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700" />
-                                        <div className="relative p-8 rounded-2xl bg-blue-500/5 border border-blue-500/10 backdrop-blur-sm">
-                                            <div className="text-3xl font-bold text-yellow-300 mb-2">
+                                        <div className="absolute inset-0 bg-gradient-to-br from-blue-400/30 via-yellow-300/30 to-blue-400/30 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700" />
+                                        <div className="relative p-8 rounded-2xl bg-white/80 border border-blue-200 shadow-lg backdrop-blur-sm transform transition-all duration-300 group-hover:shadow-xl">
+                                            <div className="text-3xl font-bold text-blue-600 mb-2">
                                                 {stat.value}{stat.suffix}
                                             </div>
-                                            <div className="text-lg text-gray-300">{stat.label}</div>
-                                            <div className="text-sm text-gray-400">{stat.sublabel}</div>
+                                            <div className="text-lg text-gray-700">{stat.label}</div>
+                                            <div className="text-sm text-gray-500">{stat.sublabel}</div>
                                         </div>
                                     </motion.div>
                                 ))}
@@ -158,43 +159,45 @@ const UniversityStudio = () => {
                                 transition={{ delay: 1.2 }}
                                 className="flex flex-col sm:flex-row items-center justify-center gap-6"
                             >
-                                <a
+                                <motion.a
                                     href="https://sclu.io/share/bulk/file/82fc833911752e32"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-xl font-bold text-lg overflow-hidden"
+                                    className="group relative px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl font-bold text-lg overflow-hidden shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                                    whileHover={{ scale: 1.05 }}
                                 >
                                     <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-yellow-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                     <div className="relative flex items-center">
                                         제안서 보기
                                         <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                                     </div>
-                                </a>
-                                <a
+                                </motion.a>
+                                <motion.a
                                     href="https://6nxuuec1a2p.typeform.com/to/V4bKkFYO"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="group relative px-8 py-4 border-2 border-yellow-400/50 text-yellow-300 rounded-xl font-bold text-lg overflow-hidden"
+                                    className="group relative px-8 py-4 bg-white border-2 border-blue-500 text-blue-600 rounded-xl font-bold text-lg overflow-hidden shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                                    whileHover={{ scale: 1.05 }}
                                 >
-                                    <div className="absolute inset-0 bg-yellow-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                    <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-yellow-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                     <div className="relative flex items-center">
                                         상담 신청
                                         <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                                     </div>
-                                </a>
+                                </motion.a>
                             </motion.div>
                         </div>
                     </div>
                 </section>
 
                 {/* 추천서 섹션 */}
-                <section className="py-24 relative">
+                <section className="py-24 relative bg-gradient-to-b from-yellow-50 via-white to-blue-50">
                     <div className="container mx-auto px-4">
                         <motion.h2
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="text-3xl md:text-4xl font-bold text-center mb-16"
+                            className="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-800"
                         >
                             추천서
                         </motion.h2>
@@ -220,16 +223,17 @@ const UniversityStudio = () => {
                                     viewport={{ once: true }}
                                     transition={{ delay: index * 0.2 }}
                                     className="relative group"
+                                    whileHover={{ scale: 1.05 }}
                                 >
-                                    <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-yellow-600/20 to-blue-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700" />
-                                    <div className="relative p-8 rounded-2xl bg-blue-500/5 border border-blue-500/10 backdrop-blur-sm">
+                                    <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 via-yellow-300/20 to-blue-400/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700" />
+                                    <div className="relative p-8 rounded-2xl bg-white shadow-lg border border-blue-100 backdrop-blur-sm">
                                         <div className="flex mb-4">
                                             {[...Array(5)].map((_, i) => (
-                                                <Star key={i} className="w-5 h-5 text-yellow-500 fill-yellow-500" />
+                                                <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
                                             ))}
                                         </div>
-                                        <p className="text-gray-300 mb-4">{testimonial.text}</p>
-                                        <p className="text-blue-400 italic">- {testimonial.author}</p>
+                                        <p className="text-gray-700 mb-4">{testimonial.text}</p>
+                                        <p className="text-blue-600 italic">- {testimonial.author}</p>
                                     </div>
                                 </motion.div>
                             ))}
@@ -238,7 +242,7 @@ const UniversityStudio = () => {
                 </section>
 
                 {/* 특징 섹션 */}
-                <section className="py-24 relative">
+                <section className="py-24 relative bg-gradient-to-b from-blue-50 via-white to-yellow-50">
                     <div className="container mx-auto px-4">
                         <motion.h2
                             initial={{ opacity: 0, y: 20 }}
