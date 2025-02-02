@@ -3,7 +3,7 @@ import { ArrowRight, Star, Users, Target, BarChart3, MessageCircle } from "lucid
 import Navbar from "../components/navigation/Navbar";
 import Footer from "../components/layout/Footer";
 import { Analytics } from "@vercel/analytics/react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const UniversityStudio = () => {
     // Motion hooks for gradient effect
@@ -69,6 +69,16 @@ const UniversityStudio = () => {
         mouseX.set(clientX);
         mouseY.set(clientY);
     };
+
+    // Portfolio scroll animation
+    const [isPortfolioHovered, setIsPortfolioHovered] = useState(false);
+    const row1Ref = useRef<HTMLDivElement>(null);
+    const row2Ref = useRef<HTMLDivElement>(null);
+
+    // Portfolio images array (30 images)
+    const portfolioImages = Array.from({ length: 30 }, (_, i) => `/images/portfolio/portfolio-${i + 1}.jpg`);
+    const row1Images = portfolioImages.slice(0, 15);
+    const row2Images = portfolioImages.slice(15);
 
     return (
         <>
@@ -294,6 +304,148 @@ const UniversityStudio = () => {
                                 </motion.div>
                             ))}
                         </div>
+                    </div>
+                </section>
+
+                {/* 포트폴리오 섹션 */}
+                <section className="py-24 relative overflow-hidden bg-gradient-to-b from-yellow-50 via-white to-blue-50">
+                    <div className="container mx-auto px-4 mb-12">
+                        <motion.h2
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-800"
+                        >
+                            포트폴리오
+                        </motion.h2>
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="text-center text-gray-600 mb-12"
+                        >
+                            다양한 프로젝트의 성공 사례를 확인해보세요
+                        </motion.p>
+                    </div>
+
+                    <div 
+                        className="relative w-full"
+                        onMouseEnter={() => setIsPortfolioHovered(true)}
+                        onMouseLeave={() => setIsPortfolioHovered(false)}
+                    >
+                        {/* First Row */}
+                        <motion.div
+                            ref={row1Ref}
+                            className="flex gap-4 mb-4"
+                            animate={{
+                                x: isPortfolioHovered ? [0, -1920] : [0, -1920],
+                            }}
+                            transition={{
+                                x: {
+                                    duration: isPortfolioHovered ? 20 : 40,
+                                    repeat: Infinity,
+                                    ease: "linear",
+                                },
+                            }}
+                        >
+                            {/* First set of images */}
+                            {row1Images.map((src, index) => (
+                                <motion.div
+                                    key={index}
+                                    className="relative flex-none w-80 h-60 rounded-xl overflow-hidden"
+                                    whileHover={{ scale: 1.05 }}
+                                >
+                                    <img
+                                        src={src}
+                                        alt={`Portfolio ${index + 1}`}
+                                        className="w-full h-full object-cover"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                        <div className="absolute bottom-4 left-4 text-white">
+                                            <h3 className="text-lg font-bold">Project {index + 1}</h3>
+                                            <p className="text-sm">마케팅 캠페인</p>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            ))}
+                            {/* Duplicate for seamless loop */}
+                            {row1Images.map((src, index) => (
+                                <motion.div
+                                    key={`duplicate-${index}`}
+                                    className="relative flex-none w-80 h-60 rounded-xl overflow-hidden"
+                                    whileHover={{ scale: 1.05 }}
+                                >
+                                    <img
+                                        src={src}
+                                        alt={`Portfolio ${index + 1}`}
+                                        className="w-full h-full object-cover"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                        <div className="absolute bottom-4 left-4 text-white">
+                                            <h3 className="text-lg font-bold">Project {index + 1}</h3>
+                                            <p className="text-sm">마케팅 캠페인</p>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </motion.div>
+
+                        {/* Second Row */}
+                        <motion.div
+                            ref={row2Ref}
+                            className="flex gap-4"
+                            animate={{
+                                x: isPortfolioHovered ? [-1920, 0] : [-1920, 0],
+                            }}
+                            transition={{
+                                x: {
+                                    duration: isPortfolioHovered ? 20 : 40,
+                                    repeat: Infinity,
+                                    ease: "linear",
+                                },
+                            }}
+                        >
+                            {/* Second set of images */}
+                            {row2Images.map((src, index) => (
+                                <motion.div
+                                    key={index}
+                                    className="relative flex-none w-80 h-60 rounded-xl overflow-hidden"
+                                    whileHover={{ scale: 1.05 }}
+                                >
+                                    <img
+                                        src={src}
+                                        alt={`Portfolio ${index + 16}`}
+                                        className="w-full h-full object-cover"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                        <div className="absolute bottom-4 left-4 text-white">
+                                            <h3 className="text-lg font-bold">Project {index + 16}</h3>
+                                            <p className="text-sm">마케팅 캠페인</p>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            ))}
+                            {/* Duplicate for seamless loop */}
+                            {row2Images.map((src, index) => (
+                                <motion.div
+                                    key={`duplicate-${index}`}
+                                    className="relative flex-none w-80 h-60 rounded-xl overflow-hidden"
+                                    whileHover={{ scale: 1.05 }}
+                                >
+                                    <img
+                                        src={src}
+                                        alt={`Portfolio ${index + 16}`}
+                                        className="w-full h-full object-cover"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                        <div className="absolute bottom-4 left-4 text-white">
+                                            <h3 className="text-lg font-bold">Project {index + 16}</h3>
+                                            <p className="text-sm">마케팅 캠페인</p>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </motion.div>
                     </div>
                 </section>
 
