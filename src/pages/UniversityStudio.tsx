@@ -76,7 +76,7 @@ const UniversityStudio = () => {
     const row2Ref = useRef<HTMLDivElement>(null);
 
     // Portfolio images array (30 images)
-    const portfolioImages = Array.from({ length: 30 }, (_, i) => `/images/portfolio/portfolio-${i + 1}.jpg`);
+    const portfolioImages = Array.from({ length: 30 }, (_, i) => `/images/${i + 1}${i < 10 ? '.png' : i < 15 ? '.jpg' : '.png'}`);
     const row1Images = portfolioImages.slice(0, 15);
     const row2Images = portfolioImages.slice(15);
 
