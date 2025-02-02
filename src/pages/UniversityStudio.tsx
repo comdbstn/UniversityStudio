@@ -329,16 +329,16 @@ const UniversityStudio = () => {
                     </div>
 
                     <div 
-                        className="relative w-full"
+                        className="relative w-full overflow-hidden px-4"
                         onMouseEnter={() => setIsPortfolioHovered(true)}
                         onMouseLeave={() => setIsPortfolioHovered(false)}
                     >
                         {/* First Row */}
                         <motion.div
                             ref={row1Ref}
-                            className="flex gap-4 mb-4"
+                            className="flex gap-6 mb-6"
                             animate={{
-                                x: isPortfolioHovered ? [0, -1920] : [0, -1920],
+                                x: isPortfolioHovered ? [0, -2400] : [0, -2400],
                             }}
                             transition={{
                                 x: {
@@ -352,15 +352,15 @@ const UniversityStudio = () => {
                             {row1Images.map((src, index) => (
                                 <motion.div
                                     key={index}
-                                    className="relative flex-none w-80 h-60 rounded-xl overflow-hidden"
-                                    whileHover={{ scale: 1.05 }}
+                                    className="relative flex-none w-[300px] h-[300px] rounded-2xl overflow-hidden shadow-lg"
+                                    whileHover={{ scale: 1.05, zIndex: 10 }}
                                 >
                                     <img
                                         src={src}
                                         alt={`Portfolio ${index + 1}`}
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-full object-contain bg-white"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
                                         <div className="absolute bottom-4 left-4 text-white">
                                             <h3 className="text-lg font-bold">Project {index + 1}</h3>
                                             <p className="text-sm">마케팅 캠페인</p>
@@ -372,15 +372,15 @@ const UniversityStudio = () => {
                             {row1Images.map((src, index) => (
                                 <motion.div
                                     key={`duplicate-${index}`}
-                                    className="relative flex-none w-80 h-60 rounded-xl overflow-hidden"
-                                    whileHover={{ scale: 1.05 }}
+                                    className="relative flex-none w-[300px] h-[300px] rounded-2xl overflow-hidden shadow-lg"
+                                    whileHover={{ scale: 1.05, zIndex: 10 }}
                                 >
                                     <img
                                         src={src}
                                         alt={`Portfolio ${index + 1}`}
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-full object-contain bg-white"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
                                         <div className="absolute bottom-4 left-4 text-white">
                                             <h3 className="text-lg font-bold">Project {index + 1}</h3>
                                             <p className="text-sm">마케팅 캠페인</p>
@@ -393,9 +393,9 @@ const UniversityStudio = () => {
                         {/* Second Row */}
                         <motion.div
                             ref={row2Ref}
-                            className="flex gap-4"
+                            className="flex gap-6"
                             animate={{
-                                x: isPortfolioHovered ? [-1920, 0] : [-1920, 0],
+                                x: isPortfolioHovered ? [-2400, 0] : [-2400, 0],
                             }}
                             transition={{
                                 x: {
@@ -409,15 +409,15 @@ const UniversityStudio = () => {
                             {row2Images.map((src, index) => (
                                 <motion.div
                                     key={index}
-                                    className="relative flex-none w-80 h-60 rounded-xl overflow-hidden"
-                                    whileHover={{ scale: 1.05 }}
+                                    className="relative flex-none w-[300px] h-[300px] rounded-2xl overflow-hidden shadow-lg"
+                                    whileHover={{ scale: 1.05, zIndex: 10 }}
                                 >
                                     <img
                                         src={src}
                                         alt={`Portfolio ${index + 16}`}
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-full object-contain bg-white"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
                                         <div className="absolute bottom-4 left-4 text-white">
                                             <h3 className="text-lg font-bold">Project {index + 16}</h3>
                                             <p className="text-sm">마케팅 캠페인</p>
@@ -429,15 +429,15 @@ const UniversityStudio = () => {
                             {row2Images.map((src, index) => (
                                 <motion.div
                                     key={`duplicate-${index}`}
-                                    className="relative flex-none w-80 h-60 rounded-xl overflow-hidden"
-                                    whileHover={{ scale: 1.05 }}
+                                    className="relative flex-none w-[300px] h-[300px] rounded-2xl overflow-hidden shadow-lg"
+                                    whileHover={{ scale: 1.05, zIndex: 10 }}
                                 >
                                     <img
                                         src={src}
                                         alt={`Portfolio ${index + 16}`}
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-full object-contain bg-white"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
                                         <div className="absolute bottom-4 left-4 text-white">
                                             <h3 className="text-lg font-bold">Project {index + 16}</h3>
                                             <p className="text-sm">마케팅 캠페인</p>
