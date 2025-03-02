@@ -41,155 +41,181 @@ const Services = () => {
   const processSteps = [
     {
       title: 'D-30: 계약 & 기획',
+      description: '전략적인 마케팅 계획 수립',
       items: [
         '일정/장소 확정',
         '컨셉 기획 회의',
         '예산 설정',
         '세부 프로그램 구성'
-      ]
+      ],
+      image: '/images/planning.jpg'
     },
     {
       title: 'D-14: 제작 & 홍보',
+      description: '효과적인 홍보물 제작',
       items: [
         '홍보물 디자인',
         'SNS 콘텐츠 제작',
         '현장 설치물 제작',
         '기념품 제작'
-      ]
+      ],
+      image: '/images/promotion.jpg'
     },
     {
       title: 'D-Day: 실행 & 피드백',
+      description: '현장 운영 및 관리',
       items: [
         '전문 인력 배치',
         '실시간 모니터링',
         '참가자 관리',
         '긴급 상황 대응'
-      ]
+      ],
+      image: '/images/execution.jpg'
     },
     {
       title: 'D+7: 분석 & 보고',
+      description: '성과 분석 및 보고서 작성',
       items: [
         'SNS 확산율 분석',
         '브랜드 노출 효과',
         '참가자 피드백 평가',
         '성과 리포트 제공'
-      ]
+      ],
+      image: '/images/analysis.jpg'
     }
   ];
 
   return (
-    <div className="bg-gray-50 min-h-screen py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center"
-        >
-          <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-            일일호프 패키지 서비스
-          </h2>
-          <p className="mt-4 text-xl text-gray-600">
-            MZ 세대와의 직접적인 접점을 제공하는 효과적인 마케팅 솔루션
-          </p>
-        </motion.div>
-
-        <div className="mt-16 space-y-16">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className={`flex flex-col lg:flex-row items-center ${
-                index % 2 === 1 ? 'lg:flex-row-reverse' : ''
-              } gap-12`}
-            >
-              <div className="w-full lg:w-1/2">
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
-                  className="relative aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-xl"
-                >
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="object-cover w-full h-full"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                </motion.div>
-              </div>
-              <div className="w-full lg:w-1/2">
-                <motion.h3
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2, duration: 0.8 }}
-                  viewport={{ once: true }}
-                  className="text-3xl font-bold text-gray-900"
-                >
-                  {service.title}
-                </motion.h3>
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4, duration: 0.8 }}
-                  viewport={{ once: true }}
-                  className="mt-4 text-lg text-gray-600"
-                >
-                  {service.description}
-                </motion.p>
-                <motion.ul
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6, duration: 0.8 }}
-                  viewport={{ once: true }}
-                  className="mt-8 space-y-4"
-                >
-                  {service.features.map((feature) => (
-                    <motion.li
-                      key={feature}
-                      whileHover={{ x: 10 }}
-                      className="flex items-center space-x-3 text-gray-700"
-                    >
-                      <svg
-                        className="h-6 w-6 text-blue-500 flex-shrink-0"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                      <span>{feature}</span>
-                    </motion.li>
-                  ))}
-                </motion.ul>
-              </div>
-            </motion.div>
-          ))}
+    <div className="bg-gray-50 min-h-screen">
+      {/* Hero Section */}
+      <div className="relative bg-blue-600 py-16">
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src="/images/university-promotion.jpg"
+            alt="University Marketing"
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-blue-600/60 mix-blend-multiply" />
         </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
+              일일호프 패키지 서비스
+            </h2>
+            <p className="mt-4 text-xl text-blue-100">
+              MZ 세대와의 직접적인 접점을 제공하는 효과적인 마케팅 솔루션
+            </p>
+          </motion.div>
+        </div>
+      </div>
 
-        {/* Process Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="mt-24"
-        >
-          <div className="text-center">
+      {/* Services Section */}
+      <div className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-24">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+                className={`flex flex-col lg:flex-row items-center ${
+                  index % 2 === 1 ? 'lg:flex-row-reverse' : ''
+                } gap-12`}
+              >
+                <div className="w-full lg:w-1/2">
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                    className="relative aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden shadow-2xl"
+                  >
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  </motion.div>
+                </div>
+                <div className="w-full lg:w-1/2">
+                  <motion.h3
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2, duration: 0.8 }}
+                    viewport={{ once: true }}
+                    className="text-3xl font-bold text-gray-900"
+                  >
+                    {service.title}
+                  </motion.h3>
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4, duration: 0.8 }}
+                    viewport={{ once: true }}
+                    className="mt-4 text-lg text-gray-600"
+                  >
+                    {service.description}
+                  </motion.p>
+                  <motion.ul
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6, duration: 0.8 }}
+                    viewport={{ once: true }}
+                    className="mt-8 space-y-4"
+                  >
+                    {service.features.map((feature) => (
+                      <motion.li
+                        key={feature}
+                        whileHover={{ x: 10 }}
+                        className="flex items-center space-x-3 text-gray-700"
+                      >
+                        <svg
+                          className="h-6 w-6 text-blue-500 flex-shrink-0"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                        <span>{feature}</span>
+                      </motion.li>
+                    ))}
+                  </motion.ul>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Process Section */}
+      <div className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
             <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
               진행 프로세스
             </h2>
             <p className="mt-4 text-xl text-gray-600">
               체계적인 프로세스로 성공적인 마케팅을 지원합니다
             </p>
-          </div>
+          </motion.div>
 
           <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             {processSteps.map((step, index) => (
@@ -199,73 +225,110 @@ const Services = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.2, duration: 0.8 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300"
+                className="relative group"
               >
-                <h3 className="text-lg font-bold text-gray-900 mb-4">{step.title}</h3>
-                <ul className="space-y-3">
-                  {step.items.map((item) => (
-                    <li key={item} className="flex items-center text-gray-600">
-                      <svg
-                        className="h-5 w-5 text-blue-500 mr-2"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                <motion.div
+                  whileHover={{ 
+                    scale: 1.05,
+                    boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+                  }}
+                  className="bg-white rounded-2xl shadow-lg overflow-hidden"
+                >
+                  <div className="relative h-48">
+                    <img
+                      src={step.image}
+                      alt={step.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                    <div className="absolute bottom-4 left-4 text-white">
+                      <h3 className="text-lg font-bold">{step.title}</h3>
+                      <p className="text-sm text-gray-300">{step.description}</p>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <ul className="space-y-3">
+                      {step.items.map((item) => (
+                        <motion.li
+                          key={item}
+                          whileHover={{ x: 10 }}
+                          className="flex items-center text-gray-600"
+                        >
+                          <svg
+                            className="h-5 w-5 text-blue-500 mr-2"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M5 13l4 4L19 7"
+                            />
+                          </svg>
+                          {item}
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </div>
+                </motion.div>
               </motion.div>
             ))}
           </div>
-        </motion.div>
-
-        {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="mt-24 bg-blue-600 rounded-2xl p-8 text-center"
-        >
-          <h2 className="text-2xl font-bold text-white mb-4">
-            지금 바로 시작하세요
-          </h2>
-          <p className="text-blue-100 mb-8">
-            상담을 통해 귀사에 맞는 최적의 마케팅 전략을 제안해드립니다
-          </p>
-          <div className="flex justify-center gap-4">
-            <motion.a
-              href="http://pf.kakao.com/_DxnAZG/chat"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-blue-700 bg-white hover:bg-blue-50 transition-colors duration-300"
-            >
-              <Send className="w-5 h-5 mr-2" />
-              문의하기
-            </motion.a>
-            <motion.a
-              href="/docs/university-studio-proposal.pdf"
-              download
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-500 hover:bg-blue-400 transition-colors duration-300"
-            >
-              <Download className="w-5 h-5 mr-2" />
-              제안서 다운로드
-            </motion.a>
-          </div>
-        </motion.div>
+        </div>
       </div>
+
+      {/* CTA Section */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="relative bg-blue-600 py-16"
+      >
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src="/images/experience-marketing.jpg"
+            alt="Marketing Experience"
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-blue-600/60 mix-blend-multiply" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-2xl font-bold text-white mb-4">
+              지금 바로 시작하세요
+            </h2>
+            <p className="text-blue-100 mb-8">
+              상담을 통해 귀사에 맞는 최적의 마케팅 전략을 제안해드립니다
+            </p>
+            <div className="flex justify-center gap-4">
+              <motion.a
+                href="http://pf.kakao.com/_DxnAZG/chat"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-blue-700 bg-white hover:bg-blue-50 transition-colors duration-300"
+              >
+                <Send className="w-5 h-5 mr-2" />
+                문의하기
+              </motion.a>
+              <motion.a
+                href="/docs/university-studio-proposal.pdf"
+                download
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center px-6 py-3 border border-white text-base font-medium rounded-full text-white hover:bg-white hover:text-blue-600 transition-colors duration-300"
+              >
+                <Download className="w-5 h-5 mr-2" />
+                제안서 다운로드
+              </motion.a>
+            </div>
+          </div>
+        </div>
+      </motion.div>
     </div>
   );
 };
