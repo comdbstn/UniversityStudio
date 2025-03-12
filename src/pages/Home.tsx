@@ -9,22 +9,25 @@ const Home = () => {
 
   const solutions = [
     {
-      title: '마케팅 솔루션',
+      title: '일일호프 스폰서십',
       step: 'Step 01',
-      description: '고객이 고민하는 근본적 문제 해결, 타겟의 관심사와 행동 패턴 기반의 맞춤형 마케팅 전략 설계 및 최적화',
-      icon: '🎯'
+      description: '대학생 문화의 중심, 일일호프를 통한 직접적인 브랜드 경험 제공. 타겟 고객과의 실질적인 접점 형성으로 브랜드 인지도 극대화',
+      icon: '🎉',
+      features: ['현장 브랜딩', '체험 부스 운영', '이벤트 기획 및 실행']
     },
     {
-      title: '콘텐츠 솔루션',
+      title: '바이럴 콘텐츠 제작',
       step: 'Step 02',
-      description: '창의적이고 참신한 콘텐츠를 통해 코어 타겟에게 브랜드 임팩트 극대화, 타겟과 직접적인 상호작용 유도',
-      icon: '✨'
+      description: '방문객들의 자발적인 바이럴을 유도하는 창의적인 스폰서십 콘텐츠 기획. SNS에서 화제가 되는 독창적인 경험 제공',
+      icon: '✨',
+      features: ['인스타그래머블 포토존', '참여형 이벤트', '실시간 SNS 인터랙션']
     },
     {
-      title: '미디어 솔루션',
+      title: '미디어 확산',
       step: 'Step 03',
-      description: 'MZ세대가 활발히 활용하는 미디어를 통해 브랜드 인지도 향상, 캠퍼스 내 이벤트·체험 마케팅으로 타겟과 직접 소통',
-      icon: '📱'
+      description: '학생들의 자발적인 홍보 활동을 통한 미디어 확산. 에브리타임, 인스타그램 등 대학생 플랫폼에서의 자연스러운 바이럴 유도',
+      icon: '📱',
+      features: ['해시태그 캠페인', '인플루언서 협업', '커뮤니티 마케팅']
     }
   ];
 
@@ -258,19 +261,51 @@ const Home = () => {
                   scale: 1.05,
                   boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
                 }}
-                className="flex flex-col items-center p-6 bg-white rounded-xl shadow-xl transition-all duration-300"
+                className="relative flex flex-col items-center p-8 bg-gradient-to-br from-white via-blue-50 to-blue-100 rounded-xl shadow-xl transition-all duration-300 overflow-hidden"
               >
+                {/* Background Animation */}
+                <motion.div
+                  className="absolute inset-0 opacity-20"
+                  animate={{
+                    background: [
+                      "radial-gradient(circle at 0% 0%, #60A5FA, transparent)",
+                      "radial-gradient(circle at 100% 100%, #60A5FA, transparent)",
+                      "radial-gradient(circle at 0% 0%, #60A5FA, transparent)"
+                    ]
+                  }}
+                  transition={{
+                    duration: 5,
+                    repeat: Infinity,
+                    repeatType: "reverse"
+                  }}
+                />
+                
                 <motion.div 
-                  className="text-4xl mb-4"
+                  className="text-5xl mb-6 relative z-10"
                   whileHover={{ scale: 1.2, rotate: 360 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   {solution.icon}
                 </motion.div>
-                <div className="text-center">
-                  <span className="text-blue-600 font-semibold">{solution.step}</span>
-                  <h3 className="text-xl font-bold text-gray-900 mt-2">{solution.title}</h3>
-                  <p className="mt-4 text-gray-600">{solution.description}</p>
+                <div className="text-center relative z-10">
+                  <span className="inline-block px-4 py-1 rounded-full bg-blue-600 text-white text-sm font-semibold mb-3">
+                    {solution.step}
+                  </span>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{solution.title}</h3>
+                  <p className="text-gray-600 mb-6">{solution.description}</p>
+                  <ul className="space-y-2">
+                    {solution.features.map((feature, i) => (
+                      <motion.li
+                        key={i}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.5 + (i * 0.1) }}
+                        className="text-blue-600 font-medium"
+                      >
+                        • {feature}
+                      </motion.li>
+                    ))}
+                  </ul>
                 </div>
               </motion.div>
             ))}
@@ -421,6 +456,88 @@ const Home = () => {
           </div>
         </div>
       </motion.div>
+
+      {/* Footer Section */}
+      <footer className="bg-gray-900 text-gray-300">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Contact Information */}
+            <div>
+              <h3 className="text-white text-lg font-semibold mb-4">연락처</h3>
+              <ul className="space-y-2">
+                <motion.li
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 }}
+                  className="flex items-center"
+                >
+                  <span className="mr-2">📞</span>
+                  <a href="tel:010-5700-0623" className="hover:text-white transition-colors">
+                    010-5700-0623
+                  </a>
+                </motion.li>
+                <motion.li
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.2 }}
+                  className="flex items-center"
+                >
+                  <span className="mr-2">✉️</span>
+                  <a href="mailto:contact@freeyourmindcorp.com" className="hover:text-white transition-colors">
+                    contact@freeyourmindcorp.com
+                  </a>
+                </motion.li>
+                <motion.li
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.3 }}
+                  className="flex items-center"
+                >
+                  <span className="mr-2">📍</span>
+                  <span>서울특별시 강남구</span>
+                </motion.li>
+              </ul>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h3 className="text-white text-lg font-semibold mb-4">바로가기</h3>
+              <ul className="space-y-2">
+                <motion.li
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 }}
+                >
+                  <a href="http://pf.kakao.com/_DxnAZG/chat" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                    카카오톡 상담
+                  </a>
+                </motion.li>
+                <motion.li
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  <a href="/docs/university-studio-proposal.pdf" download className="hover:text-white transition-colors">
+                    제안서 다운로드
+                  </a>
+                </motion.li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Copyright */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="mt-8 pt-8 border-t border-gray-800 text-center"
+          >
+            <p className="text-sm">
+              © 2025 UniversityStudio. All rights reserved.
+            </p>
+          </motion.div>
+        </div>
+      </footer>
     </div>
   );
 };
