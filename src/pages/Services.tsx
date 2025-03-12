@@ -4,35 +4,38 @@ import { Send, Download } from 'lucide-react';
 const Services = () => {
   const services = [
     {
-      title: '대학생 타깃 제품 및 서비스 홍보',
-      description: '정확한 MZ 대학생으로 필터링된 방문객과 프로모션에 반응도가 높은 타깃을 대상으로 효과적인 홍보를 진행합니다.',
+      title: '마케팅 솔루션',
+      step: 'Step 01',
+      description: '고객이 고민하는 근본적 문제 해결, 타겟의 관심사와 행동 패턴 기반의 맞춤형 마케팅 전략 설계 및 최적화',
       features: [
-        '일평균 800명의 MZ 대학생 방문',
-        '프로모션 및 이벤트 높은 반응도',
-        '이벤트 병행을 통한 바이럴 확산',
-        '브랜드 친숙도 형성'
+        '대학생 특화 마케팅 전략',
+        '정교한 타겟팅과 높은 전환율',
+        '낮은 CPC 단가로 효율적 운영',
+        '브랜드 인지도 확보'
       ],
       image: '/images/university-promotion.jpg'
     },
     {
-      title: '실질적인 대규모 샘플링',
-      description: '단순 방문객이 아닌, 제품 반응을 빠르게 검증할 수 있는 실험군을 통해 데이터를 수집하고 분석합니다.',
+      title: '콘텐츠 솔루션',
+      step: 'Step 02',
+      description: '창의적이고 참신한 콘텐츠를 통해 코어 타겟에게 브랜드 임팩트 극대화, 타겟과 직접적인 상호작용 유도',
       features: [
-        '제품 반응 실시간 검증',
-        '측정적 데이터 수집',
-        '마케팅 전략 수정 용이',
-        '타깃 피드백 수집'
+        '창의적 콘텐츠 기획',
+        '브랜드 스토리텔링',
+        '높은 인게이지먼트 유도',
+        '자발적 바이럴 확산'
       ],
       image: '/images/sampling-analysis.jpg'
     },
     {
-      title: '체험 기반 타깃팅',
-      description: '음료, 주류, F&B, 뷰티, IT 등 다양한 제품을 자연스럽게 체험할 수 있는 환경을 제공합니다.',
+      title: '미디어 솔루션',
+      step: 'Step 03',
+      description: 'MZ세대가 활발히 활용하는 미디어를 통해 브랜드 인지도 향상, 캠퍼스 내 이벤트·체험 마케팅으로 타겟과 직접 소통',
       features: [
-        '자연스러운 제품 체험',
-        '브랜드 스토리텔링',
-        '제품 사용 경험 제공',
-        '구매 전환율 증가'
+        '대학생 커뮤니티 활용',
+        '에브리타임 마케팅',
+        'SNS 인플루언서 협업',
+        '캠퍼스 내 직접 노출'
       ],
       image: '/images/experience-marketing.jpg'
     }
@@ -85,6 +88,38 @@ const Services = () => {
     }
   ];
 
+  const benefits = [
+    {
+      title: '브랜드 인지도와 체험 기회 확보',
+      description: '일평균 800명의 대학생이 방문하는 공간에서 제품 및 서비스를 홍보하고 체험 기회 제공',
+      icon: '🎯'
+    },
+    {
+      title: '브랜드와의 상호작용 가능한 강력한 브랜드 경험',
+      description: '단순 노출이 아닌 체험 기반 타겟팅으로 감각과 연결된 브랜드 경험 제공',
+      icon: '✨'
+    },
+    {
+      title: '자발적 바이럴 효과',
+      description: '대학생 커뮤니티와 SNS를 통한 입소문 효과로 ROI 극대화',
+      icon: '📱'
+    },
+    {
+      title: '구매 전환율 증가',
+      description: '브랜드 경험을 통해 구매 과정에서 해당 브랜드가 먼저 떠오르도록 만드는 Top of Mind 효과',
+      icon: '💰'
+    }
+  ];
+
+  const results = [
+    { title: '직접 참여', value: '800+', description: '명' },
+    { title: 'SNS 총 도달', value: '10,000+', description: '명' },
+    { title: '해시태그 노출', value: '5,000+', description: '회' },
+    { title: '브랜드 체험 시간', value: '15-20', description: '분' },
+    { title: '콘텐츠 공유', value: '300+', description: '회' },
+    { title: '구매 전환율', value: '25%+', description: '' }
+  ];
+
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* Hero Section */}
@@ -105,18 +140,74 @@ const Services = () => {
             className="text-center"
           >
             <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
-              일일호프 패키지 서비스
+              유니버시티 스튜디오 서비스
             </h2>
             <p className="mt-4 text-xl text-blue-100">
-              MZ 세대와의 직접적인 접점을 제공하는 효과적인 마케팅 솔루션
+              MZ 세대, 특히 대학생을 타겟으로 한 종합 마케팅 솔루션
             </p>
           </motion.div>
+        </div>
+      </div>
+
+      {/* Overview Section */}
+      <div className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+              서비스 개요
+            </h2>
+            <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
+              유니버시티 스튜디오는 MZ 세대의 직접적인 접점을 제공하는 마케팅 솔루션으로, 비즈니스 목표와 브랜드 특성을 반영한 전략적인 접근으로 광고 목표를 달성합니다.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+            {benefits.map((benefit, index) => (
+              <motion.div
+                key={benefit.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.2, duration: 0.8 }}
+                viewport={{ once: true }}
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+                }}
+                className="bg-white rounded-xl shadow-lg p-6 border border-gray-100"
+              >
+                <div className="text-4xl mb-4">{benefit.icon}</div>
+                <h3 className="text-lg font-bold text-gray-900">{benefit.title}</h3>
+                <p className="mt-2 text-gray-600">{benefit.description}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
 
       {/* Services Section */}
       <div className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+              종합 마케팅 솔루션
+            </h2>
+            <p className="mt-4 text-xl text-gray-600">
+              비즈니스 목표와 브랜드 특성을 반영한 전략적 접근
+            </p>
+          </motion.div>
+
           <div className="space-y-24">
             {services.map((service, index) => (
               <motion.div
@@ -141,6 +232,9 @@ const Services = () => {
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                    <div className="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                      {service.step}
+                    </div>
                   </motion.div>
                 </div>
                 <div className="w-full lg:w-1/2">
@@ -199,8 +293,49 @@ const Services = () => {
         </div>
       </div>
 
-      {/* Process Section */}
+      {/* Results Section */}
       <div className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+              기대 효과
+            </h2>
+            <p className="mt-4 text-xl text-gray-600">
+              일일호프 패키지를 통해 얻을 수 있는 정량적 성과
+            </p>
+          </motion.div>
+
+          <div className="mt-16 grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-6">
+            {results.map((result, index) => (
+              <motion.div
+                key={result.title}
+                initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ delay: index * 0.1, duration: 0.8 }}
+                viewport={{ once: true }}
+                whileHover={{ 
+                  scale: 1.1,
+                  boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+                }}
+                className="bg-white rounded-2xl shadow-xl p-6 text-center"
+              >
+                <h3 className="text-sm font-semibold text-gray-600">{result.title}</h3>
+                <p className="mt-2 text-3xl font-extrabold text-blue-600">{result.value}</p>
+                <p className="text-gray-500 text-sm">{result.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Process Section */}
+      <div className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -303,24 +438,24 @@ const Services = () => {
             <p className="text-blue-100 mb-8">
               상담을 통해 귀사에 맞는 최적의 마케팅 전략을 제안해드립니다
             </p>
-            <div className="flex justify-center gap-4">
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
               <motion.a
                 href="http://pf.kakao.com/_DxnAZG/chat"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-blue-700 bg-white hover:bg-blue-50 transition-colors duration-300"
+                className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-blue-700 bg-white hover:bg-blue-50 transition-colors duration-300"
               >
                 <Send className="w-5 h-5 mr-2" />
-                문의하기
+                상담 문의하기
               </motion.a>
               <motion.a
                 href="/docs/university-studio-proposal.pdf"
                 download
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center px-6 py-3 border border-white text-base font-medium rounded-full text-white hover:bg-white hover:text-blue-600 transition-colors duration-300"
+                className="inline-flex items-center justify-center px-6 py-3 border border-white text-base font-medium rounded-full text-white hover:bg-white hover:text-blue-600 transition-colors duration-300"
               >
                 <Download className="w-5 h-5 mr-2" />
                 제안서 다운로드

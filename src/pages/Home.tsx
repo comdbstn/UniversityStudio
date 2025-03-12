@@ -7,6 +7,51 @@ const Home = () => {
   const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.95]);
   const y = useTransform(scrollYProgress, [0, 0.2], [0, 50]);
 
+  const solutions = [
+    {
+      title: '마케팅 솔루션',
+      step: 'Step 01',
+      description: '고객이 고민하는 근본적 문제 해결, 타겟의 관심사와 행동 패턴 기반의 맞춤형 마케팅 전략 설계 및 최적화',
+      icon: '🎯'
+    },
+    {
+      title: '콘텐츠 솔루션',
+      step: 'Step 02',
+      description: '창의적이고 참신한 콘텐츠를 통해 코어 타겟에게 브랜드 임팩트 극대화, 타겟과 직접적인 상호작용 유도',
+      icon: '✨'
+    },
+    {
+      title: '미디어 솔루션',
+      step: 'Step 03',
+      description: 'MZ세대가 활발히 활용하는 미디어를 통해 브랜드 인지도 향상, 캠퍼스 내 이벤트·체험 마케팅으로 타겟과 직접 소통',
+      icon: '📱'
+    }
+  ];
+
+  const stats = [
+    {
+      title: '대학생 특화 마케팅',
+      value: '90%+',
+      description: '재구매율'
+    },
+    {
+      title: '높은 콘텐츠 조회수',
+      value: '4.9/5.0',
+      description: '크몽 마케팅 만족도'
+    },
+    {
+      title: '낮은 CPC 단가',
+      value: '10년+',
+      description: '마케팅 경력'
+    }
+  ];
+
+  const clients = [
+    '코드스테이츠', '밀리', '하늘안과의원', 'QUAT', 'LG U+', 'NoteMe', 
+    '올마이투어', 'Wable', 'KPMG', '천호엔케어', '메가DJ페스티벌', 
+    '그레이비랩', '광동제약'
+  ];
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -67,14 +112,14 @@ const Home = () => {
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                MZ 세대와의 직접적인 접점
+                MZ세대 마케팅의 새로운 기준
               </motion.span>
               <motion.span 
                 className="block mt-2 text-blue-200"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                일일호프 마케팅 패키지
+                University Studio
               </motion.span>
             </motion.h1>
             <motion.p
@@ -83,7 +128,7 @@ const Home = () => {
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
-              일평균 800명의 MZ 대학생과 만나는 강력한 브랜드 경험을 제공합니다
+              대학생 타겟 종합 마케팅 솔루션으로 비즈니스 성장을 가속화하세요
             </motion.p>
           </motion.div>
 
@@ -105,7 +150,7 @@ const Home = () => {
                 className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-lg font-medium rounded-full text-blue-700 bg-white hover:bg-blue-50 transition-all duration-300 hover:shadow-xl"
               >
                 <Send className="w-5 h-5 mr-2" />
-                문의하기
+                상담 문의하기
               </a>
             </motion.div>
             <motion.div
@@ -175,7 +220,7 @@ const Home = () => {
         />
       </motion.div>
 
-      {/* Features Section */}
+      {/* Solutions Section */}
       <div className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -190,37 +235,21 @@ const Home = () => {
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              핵심 성과 지표
+              종합 마케팅 솔루션
             </motion.h2>
             <motion.p 
               className="mt-4 text-xl text-gray-600"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              일일호프 패키지의 강력한 마케팅 효과를 경험하세요
+              비즈니스 목표와 브랜드 특성을 반영한 전략적 접근
             </motion.p>
           </motion.div>
 
           <div className="mt-20 grid grid-cols-1 gap-8 md:grid-cols-3">
-            {[
-              {
-                title: '직접 참여',
-                description: '일평균 800명 이상의 대학생이 직접 참여하며, 브랜드와 2시간 이상 접촉',
-                icon: '👥'
-              },
-              {
-                title: 'SNS 도달',
-                description: '10,000명 이상의 SNS 도달과 5,000회 이상의 해시태그 노출',
-                icon: '📱'
-              },
-              {
-                title: '구매 전환',
-                description: '25% 이상의 구매 전환율과 40%의 재방문율 달성',
-                icon: '💰'
-              }
-            ].map((feature, index) => (
+            {solutions.map((solution, index) => (
               <motion.div
-                key={feature.title}
+                key={solution.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.2, duration: 0.8 }}
@@ -236,17 +265,20 @@ const Home = () => {
                   whileHover={{ scale: 1.2, rotate: 360 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  {feature.icon}
+                  {solution.icon}
                 </motion.div>
-                <h3 className="text-xl font-bold text-gray-900">{feature.title}</h3>
-                <p className="mt-4 text-gray-600 text-center">{feature.description}</p>
+                <div className="text-center">
+                  <span className="text-blue-600 font-semibold">{solution.step}</span>
+                  <h3 className="text-xl font-bold text-gray-900 mt-2">{solution.title}</h3>
+                  <p className="mt-4 text-gray-600">{solution.description}</p>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Pricing Section */}
+      {/* Stats Section */}
       <div className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -261,125 +293,80 @@ const Home = () => {
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              패키지 가격
+              전문성과 노하우
             </motion.h2>
             <motion.p 
               className="mt-4 text-xl text-gray-600"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              비즈니스 목표에 맞는 최적의 패키지를 선택하세요
+              10년 이상 경력의 대학생 타겟 전문 마케터들이 함께합니다
             </motion.p>
           </motion.div>
 
-          <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
-              }}
-              className="bg-white rounded-2xl shadow-xl p-8"
-            >
-              <h3 className="text-2xl font-bold text-gray-900">브랜드 노출형</h3>
-              <p className="mt-4 text-gray-600">기본적인 브랜드 노출과 홍보를 위한 패키지</p>
-              <div className="mt-6">
-                <motion.span 
-                  className="text-4xl font-extrabold text-gray-900"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  200만원
-                </motion.span>
-              </div>
-              <ul className="mt-6 space-y-4">
-                {[
-                  "일일호프 내부 노출",
-                  "포스터 노출",
-                  "SNS 노출",
-                  "에브리타임 노출",
-                  "기본 스태프 지원"
-                ].map((feature, index) => (
-                  <motion.li 
-                    key={index}
-                    className="flex items-center"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                  >
-                    <svg className="h-5 w-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="ml-3">{feature}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
-              }}
-              className="bg-white rounded-2xl shadow-xl p-8 border-2 border-blue-500 relative"
-            >
+          <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
+            {stats.map((stat, index) => (
               <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ 
-                  type: "spring",
-                  stiffness: 300,
-                  delay: 1
+                key={stat.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.2, duration: 0.8 }}
+                viewport={{ once: true }}
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
                 }}
-                className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2"
+                className="bg-white rounded-2xl shadow-xl p-8 text-center"
               >
-                <span className="inline-flex items-center px-4 py-1 rounded-full text-sm font-semibold bg-blue-500 text-white shadow-lg">
-                  추천
-                </span>
+                <h3 className="text-lg font-semibold text-gray-900">{stat.title}</h3>
+                <p className="mt-4 text-4xl font-extrabold text-blue-600">{stat.value}</p>
+                <p className="mt-2 text-gray-600">{stat.description}</p>
               </motion.div>
-              <h3 className="text-2xl font-bold text-gray-900">종합 마케팅형</h3>
-              <p className="mt-4 text-gray-600">전문적인 마케팅 솔루션을 위한 패키지</p>
-              <div className="mt-6">
-                <motion.span 
-                  className="text-4xl font-extrabold text-gray-900"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  300만원
-                </motion.span>
-              </div>
-              <ul className="mt-6 space-y-4">
-                {[
-                  "브랜드 노출형 패키지 전체 포함",
-                  "행사 내부 부스",
-                  "내부 이벤트 기획",
-                  "전문 스태프 지원",
-                  "결과 보고서 제공"
-                ].map((feature, index) => (
-                  <motion.li 
-                    key={index}
-                    className="flex items-center"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                  >
-                    <svg className="h-5 w-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="ml-3">{feature}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Clients Section */}
+      <div className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <motion.h2 
+              className="text-3xl font-extrabold text-gray-900 sm:text-4xl"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              함께한 클라이언트
+            </motion.h2>
+            <motion.p 
+              className="mt-4 text-xl text-gray-600"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              다양한 브랜드와 함께 성공적인 마케팅을 진행했습니다
+            </motion.p>
+          </motion.div>
+
+          <div className="mt-16 grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-4">
+            {clients.map((client, index) => (
+              <motion.div
+                key={client}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.8 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.05 }}
+                className="flex items-center justify-center p-4"
+              >
+                <span className="text-lg font-semibold text-gray-900">{client}</span>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>
@@ -415,17 +402,17 @@ const Home = () => {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-blue-700 bg-white hover:bg-blue-50 transition-colors duration-300"
+                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-blue-700 bg-white hover:bg-blue-50 transition-colors duration-300"
               >
                 <Send className="w-5 h-5 mr-2" />
-                문의하기
+                상담 문의하기
               </motion.a>
               <motion.a
                 href="/docs/university-studio-proposal.pdf"
                 download
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-500 hover:bg-blue-400 transition-colors duration-300"
+                className="inline-flex items-center px-6 py-3 border border-white text-base font-medium rounded-full text-white hover:bg-white hover:text-blue-600 transition-colors duration-300"
               >
                 <Download className="w-5 h-5 mr-2" />
                 제안서 다운로드
