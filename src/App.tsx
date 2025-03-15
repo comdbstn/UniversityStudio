@@ -3,7 +3,6 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Services from './pages/Services';
 import Packages from './pages/Packages';
-import Footer from './components/Footer';
 
 function App() {
   return (
@@ -17,7 +16,6 @@ function App() {
             <Route path="/packages" element={<Packages />} />
           </Routes>
         </main>
-        <Footer />
       </div>
     </Router>
   );
